@@ -1,8 +1,8 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 ################################################ ROTAVIAGEM - Sistema de Roteamento de Viagens ################################################################
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-Este sistema permite registrar rotas de viagem, calcular a melhor rota entre dois pontos e persistir as informações de rotas no banco de dados.
-O objetivo é encontrar a rota mais barata entre dois destinos, com base em rotas previamente cadastradas.
+Este sistema permite registrar rotas de viagem, calcular a melhor rota entre dois pontos e persistir as informaÃ§Ãµes de rotas no banco de dados.
+O objetivo Ã© encontrar a rota mais barata entre dois destinos, com base em rotas previamente cadastradas.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 ################################################# REQUISITOS: #################################################################################################
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -11,151 +11,151 @@ O objetivo é encontrar a rota mais barata entre dois destinos, com base em rotas
 2. Banco de dados SQL Server (ou outro banco configurado no contexto)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-################################################ Passos para Execução: ########################################################################################
+################################################ Passos para ExecuÃ§Ã£o: ########################################################################################
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
-	1. Clonar o repositório:
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Clonar o repositÃ³rio:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-		git clone <url-do-repositório>
-		cd RotaViagem
+	git clone <url-do-repositÃ³rio>
+	cd RotaViagem
 
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
-	2. Restaurar as dependências:
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Restaurar as dependÃªncias:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-		dotnet restore
+	dotnet restore
 
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
-	3. Configurar a string de conexão no arquivo appsettings.json com o banco de dados desejado:
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Configurar a string de conexÃ£o no arquivo appsettings.json com o banco de dados desejado:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-		{
-		  "ConnectionStrings": {
-			"RotaViagemDb": "Server=localhost;Database=RotaViagemDb;Trusted_Connection=True;"
-		  }
-		}
+	{
+	  "ConnectionStrings": {
+		"RotaViagemDb": "Server=localhost;Database=RotaViagemDb;Trusted_Connection=True;"
+	  }
+	}
 
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
-	1. 4. Aplicar as migrações do banco de dados:
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+1. 4. Aplicar as migraÃ§Ãµes do banco de dados:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-		dotnet ef database update
+	dotnet ef database update
 
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
-	5. Executar a aplicação:
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+5. Executar a aplicaÃ§Ã£o:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-		dotnet run
+	dotnet run
 
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
-	6. A API estará disponível em http://localhost:5000 (ou a URL configurada).	
-	-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+6. A API estarÃ¡ disponÃ­vel em http://localhost:5000 (ou a URL configurada).	
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 ######################################## Estrutura dos Arquivos/Pacotes #######################################################################################
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-A aplicação segue uma estrutura baseada em múltiplos projetos e está organizada da seguinte forma:
+A aplicaÃ§Ã£o segue uma estrutura baseada em mÃºltiplos projetos e estÃ¡ organizada da seguinte forma:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 RotaViagem.Api
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-Contém os Controllers da API e os endpoints para interagir com a aplicação.
+ContÃ©m os Controllers da API e os endpoints para interagir com a aplicaÃ§Ã£o.
 
-* RotaController.cs: Responsável por expor os endpoints para cadastro de rotas e consulta da melhor rota.
+* RotaController.cs: ResponsÃ¡vel por expor os endpoints para cadastro de rotas e consulta da melhor rota.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 RotaViagem.Application
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Contém a lógica de negócios e serviços responsáveis pelo processamento dos dados.
+ContÃ©m a lÃ³gica de negÃ³cios e serviÃ§os responsÃ¡veis pelo processamento dos dados.
 
-* RotaService.cs: Serviço que contém a lógica para adicionar rotas e calcular a melhor rota.
+* RotaService.cs: ServiÃ§o que contÃ©m a lÃ³gica para adicionar rotas e calcular a melhor rota.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 RotaViagem.Domain
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Contém as entidades e interfaces de repositórios.
+ContÃ©m as entidades e interfaces de repositÃ³rios.
 
 * Rota.cs: Entidade que representa uma rota, com propriedades como Origem, Destino e Valor.
-* IRotaRepository.cs: Interface do repositório que define os métodos para manipular rotas.
+* IRotaRepository.cs: Interface do repositÃ³rio que define os mÃ©todos para manipular rotas.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 RotaViagem.Infrastructure
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Contém as implementações de persistência de dados.
+ContÃ©m as implementaÃ§Ãµes de persistÃªncia de dados.
 
-* RotaRepository.cs: Implementação do repositório que acessa o banco de dados usando Entity Framework Core.
+* RotaRepository.cs: ImplementaÃ§Ã£o do repositÃ³rio que acessa o banco de dados usando Entity Framework Core.
 * RotaViagemContext.cs: Contexto do banco de dados utilizando o Entity Framework Core para mapear as entidades para tabelas do banco.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 RotaViagem.Tests
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Contém os testes unitários e de integração para garantir o funcionamento correto da aplicação.
+ContÃ©m os testes unitÃ¡rios e de integraÃ§Ã£o para garantir o funcionamento correto da aplicaÃ§Ã£o.
 
 * RotaServiceTests.cs: Testes para validar o comportamento do RotaService.
 
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-#################################################### DECISÕES DE DESIGNER #####################################################################################
+#################################################### DECISÃ•ES DE DESIGNER #####################################################################################
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-A solução foi desenvolvida com base em boas práticas de arquitetura de software, buscando clareza, escalabilidade e flexibilidade. Algumas das principais
-decisões de design são:
+A soluÃ§Ã£o foi desenvolvida com base em boas prÃ¡ticas de arquitetura de software, buscando clareza, escalabilidade e flexibilidade. Algumas das principais
+decisÃµes de design sÃ£o:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. Arquitetura em Camadas:
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	* Utilizamos uma arquitetura em camadas para separar a lógica de negócios, acesso a dados e a exposição da API.
-	* A camada de API serve como interface com o cliente, a Application contém os casos de uso e lógica de negócios, 
-	  a Domain define as entidades e regras de negócio, e a Infrastructure realiza a persistência de dados.
+	* Utilizamos uma arquitetura em camadas para separar a lÃ³gica de negÃ³cios, acesso a dados e a exposiÃ§Ã£o da API.
+	* A camada de API serve como interface com o cliente, a Application contÃ©m os casos de uso e lÃ³gica de negÃ³cios, 
+	  a Domain define as entidades e regras de negÃ³cio, e a Infrastructure realiza a persistÃªncia de dados.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. DDD (Domain-Driven Design):
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	* A aplicação segue os princípios do DDD para separar a lógica de negócios das preocupações de infraestrutura e UI.
-	  As entidades como Rota são colocadas no domínio, e os repositórios são definidos como interfaces na camada de domínio.
+	* A aplicaÃ§Ã£o segue os princÃ­pios do DDD para separar a lÃ³gica de negÃ³cios das preocupaÃ§Ãµes de infraestrutura e UI.
+	  As entidades como Rota sÃ£o colocadas no domÃ­nio, e os repositÃ³rios sÃ£o definidos como interfaces na camada de domÃ­nio.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 3. Uso de Entity Framework Core (EF Core):
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	* O EF Core foi utilizado para gerenciar a persistência de dados. Ele permite mapear as entidades para o banco de dados de forma simples e eficiente.
-	* O uso de transações não foi explicitamente implementado, mas a lógica de persistência no repositório garante que a integridade dos dados seja mantida.
+	* O EF Core foi utilizado para gerenciar a persistÃªncia de dados. Ele permite mapear as entidades para o banco de dados de forma simples e eficiente.
+	* O uso de transaÃ§Ãµes nÃ£o foi explicitamente implementado, mas a lÃ³gica de persistÃªncia no repositÃ³rio garante que a integridade dos dados seja mantida.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-4. Cálculo da Melhor Rota:
+4. CÃ¡lculo da Melhor Rota:
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	* Para calcular a melhor rota entre dois pontos, foi utilizada uma abordagem recursiva simples, que explora todas as rotas possíveis entre a origem
+	* Para calcular a melhor rota entre dois pontos, foi utilizada uma abordagem recursiva simples, que explora todas as rotas possÃ­veis entre a origem
       e o destino.
-	* O custo de cada rota é calculado somando o valor das rotas intermediárias. A melhor rota é selecionada com base no custo total.
+	* O custo de cada rota Ã© calculado somando o valor das rotas intermediÃ¡rias. A melhor rota Ã© selecionada com base no custo total.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-5. Testes Unitários:
+5. Testes UnitÃ¡rios:
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	* Utilizamos o framework XUnit para testes unitários, com o auxílio do Moq para simular dependências.
-	* Os testes garantem que a lógica de negócios no RotaService esteja funcionando conforme o esperado.
+	* Utilizamos o framework XUnit para testes unitÃ¡rios, com o auxÃ­lio do Moq para simular dependÃªncias.
+	* Os testes garantem que a lÃ³gica de negÃ³cios no RotaService esteja funcionando conforme o esperado.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-6. Persistência de Dados:
+6. PersistÃªncia de Dados:
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	* Utilizamos o Entity Framework Core para persistir as rotas no banco de dados, com a abordagem de repositórios para abstrair a camada de persistência.
-	* O repositório implementa o padrão de repositório, permitindo fácil substituição por outra implementação no futuro (como um repositório em memória ou
+	* Utilizamos o Entity Framework Core para persistir as rotas no banco de dados, com a abordagem de repositÃ³rios para abstrair a camada de persistÃªncia.
+	* O repositÃ³rio implementa o padrÃ£o de repositÃ³rio, permitindo fÃ¡cil substituiÃ§Ã£o por outra implementaÃ§Ã£o no futuro (como um repositÃ³rio em memÃ³ria ou
 	  baseado em outro banco de dados).
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-7. Boas Práticas de Código:
+7. Boas PrÃ¡ticas de CÃ³digo:
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	* A aplicação segue os princípios SOLID, garantindo que o código seja modular, reutilizável e de fácil manutenção.
-	* A lógica de negócios foi extraída para a camada de aplicação, mantendo os controllers da API focados apenas na manipulação das requisições HTTP.
+	* A aplicaÃ§Ã£o segue os princÃ­pios SOLID, garantindo que o cÃ³digo seja modular, reutilizÃ¡vel e de fÃ¡cil manutenÃ§Ã£o.
+	* A lÃ³gica de negÃ³cios foi extraÃ­da para a camada de aplicaÃ§Ã£o, mantendo os controllers da API focados apenas na manipulaÃ§Ã£o das requisiÃ§Ãµes HTTP.
