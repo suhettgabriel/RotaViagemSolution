@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotaViagem.Api", "RotaViagem.Api\RotaViagem.Api.csproj", "{82B69E67-9B9D-4029-B585-46ED17578BD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotaViagem.Api", "RotaViagem.Api\RotaViagem.Api.csproj", "{82B69E67-9B9D-4029-B585-46ED17578BD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotaViagem.Application", "RotaViagem.Application\RotaViagem.Application.csproj", "{59AB89D6-056C-46BA-A158-403E16EBE3E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotaViagem.Application", "RotaViagem.Application\RotaViagem.Application.csproj", "{59AB89D6-056C-46BA-A158-403E16EBE3E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotaViagem.Domain", "RotaViagem.Domain\RotaViagem.Domain.csproj", "{9EA94E99-42D8-4E24-A046-A35BEFB79285}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotaViagem.Domain", "RotaViagem.Domain\RotaViagem.Domain.csproj", "{9EA94E99-42D8-4E24-A046-A35BEFB79285}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotaViagem.Infrastructure", "RotaViagem.Infrastructure\RotaViagem.Infrastructure.csproj", "{0E55D8DB-AA83-44D2-A232-2642A0E24FB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotaViagem.Infrastructure", "RotaViagem.Infrastructure\RotaViagem.Infrastructure.csproj", "{0E55D8DB-AA83-44D2-A232-2642A0E24FB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotaViagem.Tests", "RotaViagem.Tests\RotaViagem.Tests.csproj", "{509BCF39-1392-430C-A6AC-70562262CF78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotaViagem.Tests", "RotaViagem.Tests\RotaViagem.Tests.csproj", "{509BCF39-1392-430C-A6AC-70562262CF78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{B3E7906C-D531-4725-BFE6-1162C56CB332}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{82B69E67-9B9D-4029-B585-46ED17578BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -42,5 +44,11 @@ Global
 		{509BCF39-1392-430C-A6AC-70562262CF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{509BCF39-1392-430C-A6AC-70562262CF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{509BCF39-1392-430C-A6AC-70562262CF78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AFBAE1D-8C41-40B5-AC84-17F91550DA05}
 	EndGlobalSection
 EndGlobal

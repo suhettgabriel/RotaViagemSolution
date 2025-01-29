@@ -15,24 +15,49 @@ namespace RotaViagem.Api.Controllers
             _rotaService = rotaService;
         }
 
+        /// <summary>
+        /// Cadastrar Rotas
+        /// </summary>
+        /// <param name="rota"></param>
+        /// <returns></returns>
         [HttpPost("adicionar")]
         public IActionResult AdicionarRota([FromBody] Rota rota)
         {
-            _rotaService.AdicionarRota(rota);
-            return Ok("Rota adicionada com sucesso!");
+            try
+            {
+                _rotaService.AdicionarRota(rota);
+                return Ok("Rota adicionada com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao adicionar rota: {ex.Message}");
+            }
         }
 
+        /// <summary>
+        /// Buscar Melhor Rota
+        /// </summary>
+        /// <param name="origem"></param>
+        /// <param name="destino"></param>
+        /// <returns></returns>
         [HttpGet("melhorrota/{origem}/{destino}")]
         public IActionResult ObterMelhorRota(string origem, string destino)
         {
-            var resultado = _rotaService.ObterMelhorRota(origem, destino);
-            if (resultado.Count == 0)
+            try
             {
-                return NotFound($"Nenhuma rota encontrada de {origem} para {destino}.");
-            }
+                var resultado = _rotaService.ObterMelhorRota(origem, destino);
+                if (resultado.Count == 0)
+                {
+                    return NotFound($"Nenhuma rota encontrada de {origem} para {destino}.");
+                }
 
-            var melhorRota = resultado.First();
-            return Ok($"Melhor Rota: {string.Join(" - ", melhorRota.Rota)} ao custo de ${melhorRota.Custo}");
+                var melhorRota = resultado.First();
+                return Ok($"Melhor Rota: {string.Join(" - ", melhorRota.Rota)} ao custo de ${melhorRota.Custo}");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao buscar a melhor rota: {ex.Message}");
+            }
         }
     }
 }

@@ -14,6 +14,11 @@ namespace RotaViagem.Application.Services
 
         public void AdicionarRota(Rota rota)
         {
+            if (_rotaRepository.ObterRota(rota.Origem, rota.Destino) != null)
+            {
+                throw new ArgumentException("Rota já cadastrada.");
+            }
+
             _rotaRepository.AdicionarRota(rota);
         }
 

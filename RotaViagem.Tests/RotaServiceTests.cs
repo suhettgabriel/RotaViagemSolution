@@ -30,6 +30,19 @@ namespace RotaViagem.Tests
         }
 
         [Fact]
+        public void AdicionarRota_DeveAdicionarRotaCorretamente()
+        {
+            var rota = new Rota("GRU", "CDG", 75);
+
+            _rotaRepositoryMock.Setup(r => r.ObterRota("GRU", "CDG")).Returns((Rota)null!);
+            _rotaRepositoryMock.Setup(r => r.AdicionarRota(It.IsAny<Rota>())).Verifiable();
+
+            _rotaService.AdicionarRota(rota);
+
+            _rotaRepositoryMock.Verify(r => r.AdicionarRota(It.IsAny<Rota>()), Times.Once);
+        }
+
+        [Fact]
         public void ObterMelhorRota_ReturnsBestRoute()
         {
             // Arrange
